@@ -20,12 +20,15 @@ services:
     container_name: backend_container
     ports:
       - "8089:8000"
+    volumes:
+      - ./backend:/app
     networks:
       - backendNetwork
+    depends_on:
+      - mongo
 
 volumes:
   mongo_data:
-    external: true
 
 networks:
   backendNetwork:
